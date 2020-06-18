@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: getway-client
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: user
+          uri: lb://user-client/user
+          predicates:
+            - Path=/user/**
+        - id: email
+          uri: lb://email-client/email
+          predicates:
+            - Path=/email/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8180/eureka/
+server:
+  port: 8088
