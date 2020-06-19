@@ -1,14 +1,14 @@
+
 spring:
-  profiles:
-    active: local
-  application:
-    name: user-client
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8180/eureka/
-feign:
-  hystrix:
-    enabled: true
-server:
-  port: 8082
+  datasource:
+    url: jdbc:mysql://localhost:3306/java_training?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    username: training
+    password: training
+  jpa:
+    show-sql: true
+  flyway:
+    url: jdbc:mysql://127.0.0.1:3306/java_training?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    user: training
+    password: training
+    locations: classpath:db/migration # 指定sql文件存放的目录
+
